@@ -4,7 +4,7 @@ import React from "react";
 
 import Image from "next/image";
 import Link from "next/link";
-import { avatarPlaceholderUrl, navItems } from "@/constants";
+import { navItems } from "@/constants";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
