@@ -31,11 +31,11 @@ export const createAdminClient = async () => {
     .setProject(appwriteConfig.projectId)
     .setKey(appwriteConfig.secretKey);
 
-  //   const session = (await cookies()).get("appwrite-session");
+  // const session = (await cookies()).get("appwrite-session");
 
-  //   if (!session || !session.value) throw new Error("No session");
+  // if (!session || !session.value) throw new Error("No session");
 
-  //   client.setSession(session.value);
+  // client.setSession(session.value);
 
   return {
     get account() {
