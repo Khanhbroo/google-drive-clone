@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Google Drive Clone (Cloud Storage Platform)
 
-## Getting Started
+A full-stack cloud file storage and management web application built with **Next.js 15**, **TypeScript**, **Appwrite**, and **Tailwind CSS**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Tech Stack
+
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend** | Next.js 15 (Turbopack), React 19, TypeScript, Tailwind CSS, Radix UI, React Dropzone, React Hook Form + Zod, Recharts |
+| **Backend / BaaS** | Appwrite (`appwrite`, `node-appwrite`) for authentication (OTP email verification), database collections, and file bucket storage |
+
+---
+
+## Project Structure
+
+```text
+google-drive-clone/
+├── app/
+│   ├── (auth)/            # Sign-in and sign-up routes
+│   └── (root)/            # Authenticated dashboard & file browser routes
+├── components/
+│   ├── ui/                # Reusable Radix/Tailwind form, dialog, toast & OTP primitives
+│   ├── AuthForm.tsx       # Account auth form
+│   ├── FileUploader.tsx   # Drag-and-drop file uploader
+│   ├── Header.tsx         # Top search & upload actions
+│   ├── MobileNavigation.tsx
+│   ├── OTPModal.tsx       # Email OTP verification modal
+│   ├── Search.tsx         # Debounced file search
+│   └── Sidebar.tsx        # Storage navigation
+├── lib/
+│   ├── actions/           # Next.js Server Actions
+│   └── appwrite/          # Appwrite client & config
+└── types/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create `.env.local`:
 
-## Learn More
+```env
+NEXT_PUBLIC_APPWRITE_ENDPOINT=your_appwrite_endpoint
+NEXT_PUBLIC_APPWRITE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_APPWRITE_DATABASE=your_database_id
+NEXT_PUBLIC_APPWRITE_USERS_COLLECTION=your_users_collection_id
+NEXT_PUBLIC_APPWRITE_FILES_COLLECTION=your_files_collection_id
+NEXT_PUBLIC_APPWRITE_BUCKET=your_bucket_id
+NEXT_APPWRITE_KEY=your_appwrite_secret_key
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Local Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm install
+npm run dev
+```
